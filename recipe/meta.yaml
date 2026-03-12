@@ -8,18 +8,17 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 1
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - python
     - pip
-
   run:
     - python
     - six
@@ -33,13 +32,13 @@ about:
   home: https://github.com/syrusakbary/promise
   license: MIT
   license_family: MIT
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'Ultra-performant Promise implementation in Python'
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  summary: Ultra-performant Promise implementation in Python
   description: |
-      This is a implementation of Promises in Python. It is a super set of
-      Promises/A+ designed to have readable, performant code and to provide
-      just the extensions that are absolutely necessary for using promises in
-      Python.  Its fully compatible with the Promises/A+ spec
+    This is a implementation of Promises in Python. It is a super set of
+    Promises/A+ designed to have readable, performant code and to provide
+    just the extensions that are absolutely necessary for using promises in
+    Python.  Its fully compatible with the Promises/A+ spec
   doc_url: https://github.com/syrusakbary/promise
   dev_url: https://github.com/syrusakbary/promise
 
